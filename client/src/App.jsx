@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route element={<PrivateRoutes />}>
+        <Route element={<PrivateRoutes />}> 
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/edit-profile" element={<EditProfile />} />
