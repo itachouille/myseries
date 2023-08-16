@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // routes
-app.use('/api', allRoutes);
+app.use('https://myseries.onrender.com/api', allRoutes);
 
 // error handler
 app.use((err, _, res, next) => {
