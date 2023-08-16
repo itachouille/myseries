@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
 		proxy: {
 			'/api': {
-				target: 'https://myseries.onrender.com/',
+				target: 'https://myseries.onrender.com',
 			},
 		},
 	},
