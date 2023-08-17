@@ -9,7 +9,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await axios.get("/api/auth/logout");
+      await axios.get("https://myseries.onrender.com/api/auth/logout");
       navigate("/login");
     } catch (error) {
       console.log(error);

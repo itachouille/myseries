@@ -14,7 +14,7 @@ function Register() {
       password: e.target.password.value,
     };
     try {
-      await axios.post("/api/auth/register", user);
+      await axios.post("https://myseries.onrender.com/api/auth/register", user);
       navigate("/login");
     } catch (error) {
       console.log(error);

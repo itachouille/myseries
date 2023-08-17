@@ -23,7 +23,7 @@ function Home() {
   const deleteTvShow = async () => {
     const id = idDeleted;
     try {
-      await axios.delete(`/api/items/${id}`);
+      await axios.delete(`https://myseries.onrender.com/api/items/${id}`);
       getTvShowSaved();
       closeDeleteModal();
     } catch (error) {
@@ -33,7 +33,7 @@ function Home() {
 
   const getTvShowSaved = async () => {
     try {
-      const { data } = await axios.get("/api/items/myItems");
+      const { data } = await axios.get("https://myseries.onrender.com/api/items/myItems");
       setTvShowSaved(
         data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
       );
@@ -64,7 +64,7 @@ function Home() {
 
   const updateTvShow = async (itemId, newSeason, newEpisode) => {
     try {
-      await axios.put(`/api/items/${itemId}`, {
+      await axios.put(`https://myseries.onrender.com/api/items/${itemId}`, {
         season: newSeason,
         episode: newEpisode,
       });

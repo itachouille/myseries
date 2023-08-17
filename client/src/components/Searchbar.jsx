@@ -11,7 +11,7 @@ const SearchBar = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.post("/api/search/search", { query });
+      const response = await axios.post("https://myseries.onrender.com/api/search/search", { query });
       setResults(response.data.results);
       setQuery("");
     } catch (error) {
@@ -28,7 +28,7 @@ const SearchBar = () => {
       episode: 1,
     };
     try {
-      await axios.post("/api/items", newItem);
+      await axios.post("https://myseries.onrender.com/api/items", newItem);
       navigate("/");
     } catch (error) {
       console.log(error);
