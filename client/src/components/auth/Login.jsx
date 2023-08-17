@@ -10,6 +10,7 @@ function Login() {
     const password = e.target.password.value;
 
     try {
+      axios.defaults.withCredentials = true;
       await axios.post("https://myseries.onrender.com/api/auth/login", {
         email,
         password,

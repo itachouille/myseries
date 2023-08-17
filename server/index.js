@@ -10,11 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 8500;
 
 // middleware
-app.use(cors({
-  origin: 'https://my-series.netlify.app',
-  methods: ['GET', 'POST','PUT' ,'DELETE'],
-  credentials: true,
-}));
+app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser());
