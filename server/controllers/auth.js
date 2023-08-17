@@ -39,7 +39,11 @@ export const login = async (req, res, next) => {
 			expiresIn: '1d',
 		});
 		return res
-			.cookie('access_token', token)
+		.cookie('access_token', token, {
+			httpOnly: true,
+			sameSite: 'none',
+			secure: true,
+		})
 			.status(200)
 			.json({ name: user.name, email: user.email, message: 'login success' });
 	} catch (err) {
