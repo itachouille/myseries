@@ -10,7 +10,11 @@ const app = express();
 const PORT = process.env.PORT || 8500;
 
 // middleware
-app.use(cors())
+app.use(cors({
+  origin: "https://myseries-79ovpvo2y-itachouille.vercel.app",
+  headers: ["Content-Type"],
+  credentials: true,
+}));
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser());
