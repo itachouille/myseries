@@ -37,11 +37,11 @@ export const login = async (req, res, next) => {
 		};
 		const token = jwt.sign(payload, process.env.JWT_SECRET, {
 			expiresIn: '1d',
+			sameSite: "none",
 		});
 		return res
 		.cookie('access_token', token, {
 			httpOnly: true,
-			SameSite: "none",
 		})
 			.status(200)
 			.json({ name: user.name, email: user.email, message: 'login success' });
