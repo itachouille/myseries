@@ -65,7 +65,7 @@ function Login() {
         <div className="mt-4 flex items-center justify-between">
           <span className="border-b w-1/5 lg:w-1/4"></span>
           <a
-            href="/register"
+            to="/register"
             className="text-xs text-center uppercase"
           >
             or register

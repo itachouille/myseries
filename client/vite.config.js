@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    commonjsOptions: {
+   /*  commonjsOptions: {
       transformMixedEsModules: true,
       // include: [/linked-dep/, /node_modules/],
-    },
+    }, */
   },
 })
