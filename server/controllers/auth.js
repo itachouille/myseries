@@ -79,7 +79,7 @@ export const register = async (req, res, next) => {
 };
 
 export const logout = async (_, res) => {
-	res.clearCookie('access_token');
+	res.clearCookie('access_token', {path: '/', domain: "https://myseries-ri9epyfod-itachouille.vercel.app/"});
 	return res.status(200).json({ message: 'logout success' });
 };
 
