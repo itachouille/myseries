@@ -12,9 +12,8 @@ const PORT = process.env.PORT || 8500;
 // middleware
 app.use(cors({
   origin: "https://myseries.onrender.com",
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
 }))
+app.options('*', cors())
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser());
