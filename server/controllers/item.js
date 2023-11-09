@@ -4,7 +4,7 @@ import createError from '../utils/createError.js';
 export const createItem = async (req, res, next) => {
 	const newItem = new Item({
 		name: req.body.name,
-		apiID: req.body.apiID,
+		apiID: req.body.id,
 		backdrop_path: req.body.backdrop_path,
 		season: req.body.season,
 		episode: req.body.episode,
