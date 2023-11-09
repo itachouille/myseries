@@ -22,7 +22,7 @@ const SearchBar = () => {
   const addTvShow = async (item) => {
     const newItem = {
       name: item.name, 
-      apiID: item.apiID,
+      apiID: item.id,
       backdrop_path: item.backdrop_path,
       season: 1,
       episode: 1,
