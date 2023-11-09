@@ -1,5 +1,5 @@
 import express from 'express';
-import checkAuth from '../utils/checkAuth.js';
+import checkAuth from '../middleware/checkAuth.js';
 import authRoutes from './auth.js';
 import usersRoutes from './users.js';
 import itemsRoutes from './items.js';

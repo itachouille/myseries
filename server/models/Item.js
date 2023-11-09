@@ -8,7 +8,7 @@ const itemSchema = new Schema(
       type: String,
       required: true,
     },
-    id: {
+    apiID: {
       type: Number,
       required: true,
     },
