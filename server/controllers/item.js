@@ -52,7 +52,7 @@ export const deleteItem = async (req, res, next) => {
 export const getCurrentUserItems = async (req, res, next) => {
 	try {
 	  const items = await Item.find({ user: req.user.id });
-	  return successResponse(res, 'User items received');
+	  return successResponse(res, 'User items received', items);
 	} catch (err) {
 	  return next(err);
 	}

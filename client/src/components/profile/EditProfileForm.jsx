@@ -10,7 +10,7 @@ function EditProfileForm() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get("https://myseries.onrender.com/api/users/me");
+        const { data } = (await axios.get("https://myseries.onrender.com/api/users/me")).data;
         setUser(data);
       } catch (error) {
         console.log(error);
@@ -28,7 +28,7 @@ function EditProfileForm() {
   const updateProfile = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put("https://myseries.onrender.com/api/users/me", user);
+      const res = (await axios.put("https://myseries.onrender.com/api/users/me", user)).data;
       setUser(res.data);
     } catch (error) {
       console.log(error);
