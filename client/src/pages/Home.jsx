@@ -33,7 +33,7 @@ function Home() {
 
   const getTvShowSaved = async () => {
     try {
-      const { data } = await axios.get("https://myseries.onrender.com/api/items/myItems");
+      const { data } = (await axios.get("https://myseries.onrender.com/api/items/myItems")).data;
       setTvShowSaved(
         data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
       );

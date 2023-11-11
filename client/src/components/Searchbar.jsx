@@ -11,7 +11,7 @@ const SearchBar = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.post("https://myseries.onrender.com/api/search/search", { query });
+      const response = (await axios.post("https://myseries.onrender.com/api/search/search", { query })).data;
       setResults(response.data.results);
       setQuery("");
     } catch (error) {
