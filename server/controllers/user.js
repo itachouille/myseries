@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import successResponse from '../utils/successResponse.js';
 
 export const updateUser = async (req, res, next) => {
 	try {
@@ -12,7 +13,7 @@ export const updateUser = async (req, res, next) => {
 				new: true,
 			}
 		).select('name email');
-		return res.status(200).json(updatedUser);
+		return successResponse(res, 'User updated', updatedUser);
 	} catch (err) {
 		return next(err);
 	}
@@ -21,7 +22,7 @@ export const updateUser = async (req, res, next) => {
 export const getUserInfo = async (req, res, next) => {
 	try {
 		const data = await User.findById(req.user.id);
-		return res.status(200).json(data);
+		return successResponse(res, 'User information received', data);
 	} catch (err) {
 		return next(err);
 	}

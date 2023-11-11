@@ -1,5 +1,6 @@
 import Item from '../models/Item.js';
 import createError from '../utils/createError.js';
+import successResponse from '../utils/successResponse.js';
 
 export const createItem = async (req, res, next) => {
 	const newItem = new Item({
@@ -12,7 +13,7 @@ export const createItem = async (req, res, next) => {
 	});
 	try {
 		const savedItem = await newItem.save();
-		return res.status(200).json(savedItem);
+		return successResponse(res, 'Item created successfully', savedItem);
 	} catch (error) {
 		return next(error);
 	}
@@ -32,7 +33,7 @@ export const updateItem = async (req, res, next) => {
 			},
 			{ new: true }
 		);
-		return res.status(200).json(updatedItem);
+		return successResponse(res, 'Item updated successfully', updatedItem);
 	} catch (error) {
 		return next(error);
 	}
@@ -41,7 +42,7 @@ export const updateItem = async (req, res, next) => {
 export const deleteItem = async (req, res, next) => {
 	try {
 		await Item.findByIdAndDelete(req.params.itemId);
-		return res.json('Deleted Successfully');
+		return successResponse(res, 'Item deleted successfully');
 		}
 	 catch (error) {
 		return next(error);
@@ -51,7 +52,7 @@ export const deleteItem = async (req, res, next) => {
 export const getCurrentUserItems = async (req, res, next) => {
 	try {
 	  const items = await Item.find({ user: req.user.id });
-	  return res.status(200).json(items);
+	  return successResponse(res, 'User items received');
 	} catch (err) {
 	  return next(err);
 	}

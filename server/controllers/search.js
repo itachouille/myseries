@@ -1,5 +1,6 @@
 import "dotenv/config";
 import fetch from "node-fetch";
+import successResponse from '../utils/successResponse.js';
 
 export const search = async (req, res) => {
   try {
@@ -14,7 +15,7 @@ export const search = async (req, res) => {
     const url = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${query}`;
     const response = await fetch(url);
     const data = await response.json();
-    res.json(data);
+    return successResponse(res, 'Searching success', data);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error during search" });
